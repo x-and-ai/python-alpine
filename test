@@ -1,0 +1,8 @@
+# clean up test container and image
+source clean
+
+# Build test image
+docker build --tag=$TEST_IMAGE_NAME .
+
+# Run a test container
+docker run  --rm -it --name $TEST_CONTAINER_NAME $TEST_IMAGE_NAME python -c "print('Test: Passed!')" && python -V && pip -V

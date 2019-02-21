@@ -1,0 +1,17 @@
+# Names
+PROJECT_NAME=${PWD##*/}
+TEST_IMAGE_NAME="$PROJECT_NAME:test"
+TEST_CONTAINER_NAME="test-$PROJECT_NAME"
+
+# Stop and remove running container with the same name
+if $(docker ps -a | grep -q ${TEST_CONTAINER_NAME}); then
+    docker stop ${TEST_CONTAINER_NAME}
+fi
+if $(docker ps -a | grep -q $TEST_CONTAINER_NAME); then
+    docker rm $TEST_CONTAINER_NAME
+fi
+
+# Remove image with the same name
+if [[ "$(docker images -q $TEST_IMAGE_NAME 2> /dev/null)" != "" ]]; then
+    docker rmi $TEST_IMAGE_NAME
+fi
