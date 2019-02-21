@@ -10,6 +10,7 @@ This image will be used as the base or other Python3-based images, for example, 
 
 | tag        | python     | alpine     |
 |:----------:|:----------:|:----------:|
+| 1.0.1      | 3.6.8-r1   | 3.9        |
 | 1.0.0      | 3.6.8-r1   | 3.9        |
 
 ## Usage
